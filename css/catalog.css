@@ -1,0 +1,180 @@
+/* ============================================================
+   catalog.css
+   Estilos da página de Catálogo de Produtos.
+   Os cards são criados dinamicamente pelo JavaScript,
+   mas os estilos ficam aqui.
+   ============================================================ */
+
+.catalog-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem var(--spacing-xl) 5rem;
+}
+
+/* ── Grade de cards de produtos ── */
+.cat-grid {
+  display: grid;
+  /*
+    repeat(auto-fill, minmax(210px, 1fr))
+    Cria colunas automaticamente:
+    - Cada coluna tem no mínimo 210px
+    - Se sobrar espaço, divide igualmente (1fr)
+    - auto-fill: preenche com quantas colunas couberem
+    Resultado: 5 colunas no desktop, 2 no celular — automático!
+  */
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1px;
+  background: var(--navy);  /* Cor dos "espaços" entre cards */
+  border: 1px solid var(--navy);
+}
+
+/* ── Card individual de produto ── */
+.cat-card {
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s;
+
+  /* Necessário para o ::before (linha do topo) funcionar */
+  position: relative;
+  overflow: hidden;
+}
+
+.cat-card:hover {
+  background: var(--surface);
+}
+
+/*
+  Linha verde que "desliza" da esquerda para a direita
+  quando o mouse passa por cima do card.
+  Usa ::before para não precisar de HTML adicional.
+*/
+.cat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--teal);
+
+  /* Começa "esmagada" horizontalmente (invisível) */
+  transform: scaleX(0);
+  transform-origin: left;
+
+  /* Anima a mudança de scaleX(0) para scaleX(1) */
+  transition: transform 0.25s ease;
+}
+
+.cat-card:hover::before {
+  transform: scaleX(1);  /* Expande para o tamanho total */
+}
+
+/* ── Imagem do produto (emoji grande) ── */
+.cat-img {
+  width: 100%;
+  aspect-ratio: 1;  /* Mantém proporção quadrada */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface2);
+  font-size: 54px;
+  border-bottom: 1px solid var(--navy);
+}
+
+/* ── Corpo do card (informações) ── */
+.cat-body {
+  padding: 1.2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Badge (etiqueta "Top venda", "Premium" etc.) ── */
+.cat-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: var(--teal-glow);
+  border: 1px solid var(--teal-line);
+  color: var(--teal);
+  padding: 3px 8px;
+}
+
+/* ── Nome do produto ── */
+.cat-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+/* ── Faixa de preço ── */
+.cat-price {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--teal);
+  background: var(--teal-glow);
+  border: 1px solid var(--teal-line);
+  padding: 4px 8px;
+  display: inline-block;
+  width: fit-content;
+}
+
+/* ── Sistema de estrelas ── */
+.cat-stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cat-stars .star-row {
+  display: flex;
+  gap: 1px;
+}
+
+.cat-stars .rev-count {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--muted);
+}
+
+/* ── Link de WhatsApp dentro do card ── */
+.cat-wa {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--wa);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  /* Empurra o link para o fundo do card */
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--navy);
+  transition: color 0.2s;
+}
+
+.cat-wa:hover {
+  color: #1fb855;
+}
+
+.cat-wa svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .catalog-wrap {
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+  }
+}

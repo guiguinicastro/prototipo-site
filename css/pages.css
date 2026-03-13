@@ -1,0 +1,67 @@
+/* ============================================================
+   pages.css
+   Sistema de troca de "páginas" dentro de um único HTML.
+   Isso é o padrão SPA (Single Page Application):
+   só uma página existe, mas várias seções são mostradas
+   ou escondidas dinamicamente via JavaScript.
+   ============================================================ */
+
+/*
+  Todas as páginas ficam escondidas por padrão.
+  O JavaScript adiciona a classe .active na página
+  correta quando o usuário clica no menu.
+*/
+.page {
+  display: none;
+  min-height: 100vh;
+
+  /* Empurra o conteúdo para baixo da nav-top (desktop) */
+  padding-top: var(--nav-height);
+
+  /* Fica acima do fundo decorativo */
+  position: relative;
+  z-index: 1;
+
+  /* Animação de entrada ao trocar de página */
+  animation: pageEnter 0.35s ease;
+}
+
+/* A página com .active fica visível */
+.page.active {
+  display: block;
+}
+
+/* No celular, a nav fica no rodapé — não precisa de padding-top */
+@media (max-width: 768px) {
+  .page {
+    padding-top: 0;
+  }
+}
+
+/* ── Cabeçalho padrão de página (usado no Catálogo) ── */
+.page-header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.page-header .eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--teal);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.page-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 58px);
+  letter-spacing: 2px;
+}
+
+.page-header p {
+  font-size: 13px;
+  color: var(--sub);
+  margin-top: 6px;
+  max-width: 500px;
+}

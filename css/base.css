@@ -1,0 +1,134 @@
+/* ============================================================
+   base.css
+   Estilos globais aplicados ao body e elementos estruturais
+   que aparecem em todas as páginas (fundo, brilhos etc.).
+   ============================================================ */
+
+/* ── Configuração geral do documento ── */
+html {
+  /*
+    scroll-behavior: smooth
+    Faz a página rolar suavemente ao clicar em links âncora
+    como <a href="#secao">, em vez de pular instantaneamente.
+  */
+  scroll-behavior: smooth;
+
+  /*
+    -webkit-tap-highlight-color: transparent
+    Remove o realce azul/cinza que aparece em elementos
+    clicáveis no celular (iOS/Android). Melhora a UX mobile.
+  */
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+
+  /* Evita scroll horizontal indesejado */
+  overflow-x: hidden;
+
+  /* Garante que o body ocupe no mínimo a altura da tela */
+  min-height: 100vh;
+}
+
+/* ── Grade decorativa do fundo ── */
+.grid-bg {
+  /*
+    position: fixed + inset: 0
+    Gruda o elemento na janela do navegador.
+    Ele não rola com o conteúdo — fica sempre visível.
+    inset: 0 é atalho para top:0; right:0; bottom:0; left:0
+  */
+  position: fixed;
+  inset: 0;
+
+  /* Não captura cliques do mouse */
+  pointer-events: none;
+
+  /* Fica atrás de todo o conteúdo */
+  z-index: 0;
+
+  /*
+    Dois gradientes sobrepostos criam a grade:
+    - O primeiro faz linhas HORIZONTAIS finas
+    - O segundo (com 90deg) faz linhas VERTICAIS finas
+    background-size define o tamanho de cada "célula" da grade
+  */
+  background-image:
+    linear-gradient(rgba(46, 196, 165, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46, 196, 165, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* ── Bolas de brilho decorativas ── */
+.glow-orb {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+}
+
+/* Brilho verde-água no canto inferior direito */
+.glow-orb.one {
+  width: 700px;
+  height: 700px;
+  bottom: -200px;
+  right: -200px;
+  background: radial-gradient(
+    circle,
+    rgba(46, 196, 165, 0.06) 0%,
+    rgba(15, 37, 64, 0.2) 50%,
+    transparent 70%
+  );
+}
+
+/* Escurecimento sutil no canto superior esquerdo */
+.glow-orb.two {
+  width: 500px;
+  height: 500px;
+  top: -150px;
+  left: -150px;
+  background: radial-gradient(
+    circle,
+    rgba(15, 37, 64, 0.5) 0%,
+    transparent 70%
+  );
+}
+
+/* ── Botão flutuante do WhatsApp (só aparece no desktop) ── */
+.wa-float {
+  position: fixed;
+  bottom: 30px;
+  right: 28px;
+  z-index: 90;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--wa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px rgba(37, 211, 102, 0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: pulseWa 2.5s infinite;
+}
+
+.wa-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 32px rgba(37, 211, 102, 0.55);
+}
+
+.wa-float svg {
+  width: 27px;
+  height: 27px;
+}
+
+/* Esconde o botão flutuante no celular
+   (no mobile o WhatsApp já está na barra de navegação) */
+@media (max-width: 768px) {
+  .wa-float {
+    display: none;
+  }
+}

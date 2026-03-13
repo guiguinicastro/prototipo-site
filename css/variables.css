@@ -1,0 +1,47 @@
+/* ============================================================
+   variables.css
+   Todas as variáveis de design do projeto (tokens).
+   Para mudar uma cor no site inteiro, mude só aqui.
+   ============================================================ */
+
+/*
+  :root é o elemento raiz do documento HTML (<html>).
+  Variáveis declaradas aqui ficam disponíveis em
+  TODOS os outros arquivos CSS via var(--nome).
+*/
+:root {
+
+  /* ── Cores de fundo ── */
+  --bg:       #080f1a;   /* Azul muito escuro — fundo principal */
+  --surface:  #0c1620;   /* Um tom acima do bg — cards, painéis */
+  --surface2: #111e2e;   /* Dois tons acima — hover de cards */
+  --navy:     #0f2540;   /* Azul marinho — bordas e divisores */
+
+  /* ── Cor de destaque (verde-água) ── */
+  --teal:      #2ec4a5;               /* Verde-água puro */
+  --teal2:     #25a98d;               /* Verde-água mais escuro (hover) */
+  --teal-glow: rgba(46, 196, 165, 0.15); /* Verde translúcido — fundos leves */
+  --teal-line: rgba(46, 196, 165, 0.2);  /* Verde translúcido — bordas */
+
+  /* ── Cores de texto ── */
+  --text:  #e8f0f7;  /* Quase branco — texto principal */
+  --sub:   #9ab0c4;  /* Azul-acinzentado — texto secundário */
+  --muted: #4e6a82;  /* Mais escuro — texto de terceiro nível, placeholders */
+
+  /* ── Cor do WhatsApp (verde oficial) ── */
+  --wa: #25d366;
+
+  /* ── Tipografia ── */
+  --font-display: 'Bebas Neue', sans-serif;   /* Títulos grandes */
+  --font-mono:    'IBM Plex Mono', monospace; /* Labels, badges, código */
+  --font-body:    'Manrope', sans-serif;      /* Texto corrido */
+
+  /* ── Espaçamentos padrão ── */
+  --spacing-sm:  0.5rem;   /*  8px */
+  --spacing-md:  1rem;     /* 16px */
+  --spacing-lg:  2rem;     /* 32px */
+  --spacing-xl:  3rem;     /* 48px */
+
+  /* ── Alturas fixas ── */
+  --nav-height: 64px;   /* Altura da barra de navegação */
+}

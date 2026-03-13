@@ -1,0 +1,46 @@
+/* ============================================================
+   animations.css
+   Todas as animações (@keyframes) do projeto.
+   Mantidas num arquivo separado para fácil manutenção.
+   ============================================================ */
+
+/*
+  @keyframes define os "quadros-chave" de uma animação.
+  from = estado inicial (0%)
+  to   = estado final  (100%)
+  Você também pode usar porcentagens: 0%, 50%, 100%
+*/
+
+/* ── Entrada suave de baixo para cima ── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Entrada de página (troca de abas) ── */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Pulsação do botão flutuante e ícone do WhatsApp ── */
+@keyframes pulseWa {
+  0%, 100% {
+    box-shadow: 0 4px 24px rgba(37, 211, 102, 0.35);
+  }
+  50% {
+    box-shadow: 0 4px 32px rgba(37, 211, 102, 0.6);
+  }
+}

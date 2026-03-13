@@ -1,0 +1,237 @@
+/* ============================================================
+   nav.css
+   Estilos das duas barras de navegação:
+   - .nav-top    → aparece no TOPO (desktop, acima de 768px)
+   - .nav-bottom → aparece no RODAPÉ (mobile, abaixo de 768px)
+   ============================================================ */
+
+
+/* ════════════════════════════════════
+   BARRA DE NAVEGAÇÃO — DESKTOP (topo)
+════════════════════════════════════ */
+.nav-top {
+  position: fixed;       /* Fica presa na tela, não rola com o conteúdo */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;          /* Fica na frente de tudo */
+  height: var(--nav-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-xl);
+
+  /*
+    background com transparência (0.88) + backdrop-filter
+    cria o efeito de vidro fosco: o conteúdo que passa
+    por baixo da barra fica levemente borrado.
+  */
+  background: rgba(8, 15, 26, 0.88);
+  border-bottom: 1px solid var(--teal-line);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px); /* Prefixo para Safari */
+}
+
+/* ── Logo ── */
+.logo {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 4px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* A letra Y fica em verde-água */
+.logo em {
+  color: var(--teal);
+  font-style: normal; /* Remove o itálico padrão da tag <em> */
+}
+
+/* ── Lista de links do menu ── */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* Cada link do menu */
+.nav-links a {
+  display: flex;
+  flex-direction: column;  /* Ícone em cima, texto embaixo */
+  align-items: center;
+  gap: 5px;
+  padding: 0 20px;
+  height: var(--nav-height);
+  justify-content: center;
+
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+
+  /* Borda inferior transparente que vai aparecer no estado ativo */
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.nav-links a .nav-icon svg {
+  width: 19px;
+  height: 19px;
+  stroke-width: 1.8px;
+}
+
+/* Estado: hover (mouse em cima) e active (aba selecionada) */
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
+}
+
+/* ── Botão de WhatsApp no canto direito da nav ── */
+.nav-wa {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid var(--wa);
+  color: var(--wa);
+  padding: 8px 18px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-wa svg {
+  width: 16px;
+  height: 16px;
+}
+
+.nav-wa:hover {
+  background: var(--wa);
+  color: #ffffff;
+}
+
+
+/* ════════════════════════════════════
+   BARRA DE NAVEGAÇÃO — MOBILE (rodapé)
+════════════════════════════════════ */
+.nav-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  /*
+    display: none — escondida por padrão.
+    O @media lá embaixo vai ativar ela no mobile.
+  */
+  display: none;
+
+  background: rgba(8, 15, 26, 0.96);
+  border-top: 1px solid var(--teal-line);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  /*
+    env(safe-area-inset-bottom) respeita a "área segura"
+    em iPhones com notch/Dynamic Island — evita que
+    a barra fique por baixo dos controles do sistema.
+  */
+  padding-bottom: max(env(safe-area-inset-bottom), 8px);
+}
+
+.nav-bottom-inner {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+/* Cada aba da nav mobile */
+.nav-bottom a {
+  flex: 1;  /* Cada aba ocupa o mesmo espaço */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 4px;
+
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  color: var(--muted);
+  text-transform: uppercase;
+  transition: color 0.2s;
+  position: relative;  /* Necessário para o ::after funcionar */
+}
+
+.nav-bottom a svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 1.8px;
+}
+
+/* Cor da aba ativa ou com hover */
+.nav-bottom a.active,
+.nav-bottom a:hover {
+  color: var(--teal);
+}
+
+/*
+  Indicador de aba ativa: uma barrinha verde
+  que aparece no TOPO de cada aba selecionada.
+  Usa ::after (pseudo-elemento) para não precisar
+  de HTML extra.
+*/
+.nav-bottom a.active::after {
+  content: '';        /* Pseudo-elementos precisam de content para existir */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);  /* Centraliza horizontalmente */
+  width: 28px;
+  height: 2px;
+  background: var(--teal);
+  border-radius: 0 0 3px 3px;
+}
+
+/* A aba do WhatsApp tem cor verde própria */
+.nav-bottom a.wa-tab {
+  color: var(--wa);
+}
+
+.nav-bottom a.wa-tab:hover {
+  color: #1fb855;
+}
+
+
+/* ════════════════════════════════════
+   MEDIA QUERY — RESPONSIVIDADE
+   Abaixo de 768px = celular/tablet
+════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Esconde a nav do topo */
+  .nav-top {
+    display: none;
+  }
+
+  /* Mostra a nav do rodapé */
+  .nav-bottom {
+    display: block;
+  }
+
+  /*
+    Adiciona espaço no rodapé do body para o
+    conteúdo não ficar escondido atrás da nav mobile.
+    calc() faz conta com unidades CSS misturadas.
+  */
+  body {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom));
+  }
+}

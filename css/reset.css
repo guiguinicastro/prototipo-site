@@ -1,0 +1,48 @@
+/* ============================================================
+   reset.css
+   Zera todos os estilos padrão do navegador.
+   Este é sempre o PRIMEIRO CSS a ser carregado.
+   ============================================================ */
+
+/* Aplica em TODOS os elementos, inclusive pseudo-elementos */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+
+  /*
+    box-sizing: border-box
+    Faz com que padding e border sejam incluídos
+    dentro da largura/altura declarada do elemento.
+    Sem isso: width:200px + padding:20px = 240px (quebra o layout)
+    Com isso: width:200px + padding:20px = 200px (comportamento previsível)
+  */
+  box-sizing: border-box;
+}
+
+/* Remove marcadores de listas (•) por padrão */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove sublinhado e cor padrão de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Imagens não vazam para fora do container pai */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Botões herdam a fonte do body (o padrão do navegador não faz isso) */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}

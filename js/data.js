@@ -7,7 +7,7 @@
 
 // ── Número do WhatsApp da empresa ──
 // Formato internacional sem símbolos: 55 (Brasil) + DDD + número
-const WA_NUM = '551142183525';
+ const WA_NUM = '5511978759102';
 
 // ── Lista de produtos do catálogo ──
 /*

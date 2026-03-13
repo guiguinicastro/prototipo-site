@@ -126,22 +126,203 @@
   width: fit-content;
 }
 
-/* ── Sistema de estrelas ── */
-.cat-stars {
+/* ════════════════════════════════════
+   SISTEMA DE AVALIAÇÕES
+════════════════════════════════════ */
+
+/* ── Resumo da média atual ── */
+.rating-summary {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
+  padding: 8px 0;
+  border-top: 1px solid var(--navy);
+  border-bottom: 1px solid var(--navy);
+  flex-wrap: wrap;
 }
 
-.cat-stars .star-row {
+.avg-number {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--teal);
+  line-height: 1;
+  min-width: 24px;
+}
+
+.avg-stars {
   display: flex;
   gap: 1px;
 }
 
-.cat-stars .rev-count {
+.avg-total {
   font-family: var(--font-mono);
   font-size: 9px;
   color: var(--muted);
+  letter-spacing: 0.5px;
+  width: 100%;
+  margin-top: -2px;
+}
+
+/* ── Formulário de avaliação ── */
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.review-form-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--sub);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Estrelas clicáveis */
+.star-picker {
+  display: flex;
+  gap: 3px;
+}
+
+.star-pick {
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.star-pick:hover {
+  transform: scale(1.2);
+}
+
+/* Campo de texto do comentário */
+.comment-input {
+  background: var(--surface2);
+  border: 1px solid var(--navy);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 12px;
+  padding: 8px 10px;
+  resize: none;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  line-height: 1.5;
+}
+
+.comment-input::placeholder {
+  color: var(--muted);
+}
+
+.comment-input:focus {
+  border-color: var(--teal-line);
+}
+
+/* Rodapé do formulário: hint + botão lado a lado */
+.review-form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.review-hint {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  flex: 1;
+}
+
+/* Botão de enviar avaliação */
+.review-submit {
+  background: var(--teal-glow);
+  border: 1px solid var(--teal-line);
+  color: var(--teal);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.review-submit:hover {
+  background: var(--teal);
+  color: var(--bg);
+}
+
+/* ── Lista de comentários ── */
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+
+  /* Scrollbar customizada */
+  scrollbar-width: thin;
+  scrollbar-color: var(--navy) transparent;
+}
+
+.comments-list::-webkit-scrollbar {
+  width: 3px;
+}
+
+.comments-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.comments-list::-webkit-scrollbar-thumb {
+  background: var(--navy);
+}
+
+.no-comments {
+  font-size: 11px;
+  color: var(--muted);
+  font-style: italic;
+  text-align: center;
+  padding: 6px 0;
+}
+
+/* Card de cada comentário */
+.comment-item {
+  background: var(--surface2);
+  border: 1px solid var(--navy);
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.comment-stars {
+  display: flex;
+  gap: 1px;
+}
+
+.comment-date {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.comment-text {
+  font-size: 11px;
+  color: var(--sub);
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.comment-text.muted {
+  color: var(--muted);
+  font-style: italic;
 }
 
 /* ── Link de WhatsApp dentro do card ── */

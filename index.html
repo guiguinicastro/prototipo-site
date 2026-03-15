@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="css/catalog.css">
   <link rel="stylesheet" href="css/whatsapp.css">
   <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/freight.css">
 </head>
 
 <body>
@@ -50,7 +51,6 @@
         <a href="#" onclick="showPage('home'); return false;"
            data-page="home" class="active">
           <span class="nav-icon">
-            <!-- Ícone: Casa -->
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                  stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
@@ -64,7 +64,6 @@
         <a href="#" onclick="showPage('catalogo'); return false;"
            data-page="catalogo">
           <span class="nav-icon">
-            <!-- Ícone: Catálogo / Sacola -->
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                  stroke-linecap="round" stroke-linejoin="round">
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
@@ -78,7 +77,7 @@
     </ul>
 
     <!-- Botão WhatsApp no canto direito -->
-    <a href="https://wa.me/5511978759102" target="_blank"
+    <a href="https://wa.me/5511934592257" target="_blank"
        rel="noopener noreferrer" class="nav-wa">
       <svg viewBox="0 0 24 24" fill="currentColor">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -95,7 +94,6 @@
   <nav class="nav-bottom" role="navigation" aria-label="Menu mobile">
     <div class="nav-bottom-inner">
 
-      <!-- Aba: Início -->
       <a href="#" onclick="showPage('home'); return false;"
          data-page="home" class="active">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -106,7 +104,6 @@
         Início
       </a>
 
-      <!-- Aba: Catálogo -->
       <a href="#" onclick="showPage('catalogo'); return false;"
          data-page="catalogo">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -118,7 +115,6 @@
         Catálogo
       </a>
 
-      <!-- Aba: WhatsApp -->
       <a href="#" onclick="showPage('whatsapp'); return false;"
          data-page="whatsapp" class="wa-tab">
         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -130,19 +126,17 @@
     </div>
   </nav>
 
-
   <!-- ════════════════════════════════════════════════
        PÁGINA 1 — INÍCIO
   ════════════════════════════════════════════════ -->
   <main id="page-home" class="page active">
 
-    <!-- Seção hero (apresentação principal) -->
     <section class="home-wrap">
       <div class="home-badge">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/>
         </svg>
-        Guarulhos · Rua Treze de Maio, 381 - Vila Galvão, Guarulhos - SP, 07071-050 — Assistência Técnica
+        Guarulhos · Rua Treze de Maio, 381 - Vila Galvão — Assistência Técnica
       </div>
 
       <h1 class="home-title">
@@ -174,24 +168,22 @@
         </button>
       </div>
 
-      <!-- Estatísticas -->
       <div class="home-stats">
         <div class="stat">
-          <div class="stat-val">Especialistas renomados em consertos de aparelhos tecnológicos</div>
-          <div class="stat-lbl"></div>
+          <div class="stat-val">Empresa focada no atendimento ao cliente</div>
+          <div class="stat-lbl">Avaliações positivas</div>
         </div>
         <div class="stat">
           <div class="stat-val">Preços acessíveis</div>
-          <div class="stat-lbl">Prazos condizentes à demanda</div>
+          <div class="stat-lbl">Que cabem no <strong>SEU</strong> bolso</div>
         </div>
         <div class="stat">
-          <div class="stat-val">Empresa dedicada no atendimento ao cliente</div>
-          <div class="stat-lbl">Avaliações positivas</div>
+          <div class="stat-val">Especialistas renomados em consertos de aparelhos tecnológicos</div>
+          <div class="stat-lbl">Prazos condizentes conforme a demanda</div>
         </div>
       </div>
     </section>
 
-    <!-- Cards informativos sobre os serviços -->
     <section class="info-section">
       <div class="info-grid">
 
@@ -216,7 +208,7 @@
             </svg>
           </div>
           <h3>Acessórios & Produtos</h3>
-          <p>Capinhas, películas, carregadores, cabos, fones, headphones, pendrives e muito mais com preço que cabe no <strong>SEU</strong> bolso.</p>
+          <p>Capinhas, películas, carregadores, cabos, fones, headphones, pendrives e muito mais com preço que cabe no SEU bolso.</p>
           <span class="info-tag">→ Ver catálogo</span>
         </div>
 
@@ -234,7 +226,6 @@
 
       </div>
 
-      <!-- Bloco de endereço e horários -->
       <div class="address-block">
         <div class="address-col">
           <h3>Onde nos encontrar</h3>
@@ -244,8 +235,8 @@
             </svg>
             <div>
               <strong>Endereço</strong>
-              Guarulhos — Rua Treze de Maio, 381 — Vila Galvão<br>
-              <span class="address-note">(endereço completo via WhatsApp)</span>
+              Rua Treze de Maio, 381 — Vila Galvão<br>
+              Guarulhos — SP, 07071-050
             </div>
           </div>
           <div class="address-item">
@@ -254,7 +245,7 @@
             </svg>
             <div>
               <strong>Contato</strong>
-              (11) 97875-9102
+              (11) 93459-2257
             </div>
           </div>
         </div>
@@ -262,7 +253,7 @@
         <div class="hours-col">
           <h3>Horários</h3>
           <div class="hours-grid">
-            <div class="hours-item">Seg – Sáb<br><span>09h – 19h</span></div>
+            <div class="hours-item">Seg – Sex<br><span>09h – 19h</span></div>
             <div class="hours-item">Sábado<br><span>09h30 – 18h30</span></div>
             <div class="hours-item">Domingo<br><span class="closed">Fechado</span></div>
             <div class="hours-item">Feriados<br><span class="closed">Consultar</span></div>
@@ -271,6 +262,66 @@
       </div>
 
     </section>
+
+    <!-- ════════════════════════════════════════════════
+         CALCULADOR DE FRETE
+    ════════════════════════════════════════════════ -->
+    <section class="freight-section">
+      <div class="freight-card">
+
+        <div class="freight-card-header">
+          <div class="freight-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="15" height="13" rx="1"/>
+              <path d="M16 8h4l3 4v5h-7V8z"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/>
+              <circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+          </div>
+          <div>
+            <div class="freight-card-title">Calcule o Frete</div>
+            <p class="freight-card-sub">
+              Digite seu CEP e descubra o valor da entrega na sua região.
+              Atendemos Guarulhos, São Paulo capital e Grande SP.
+            </p>
+          </div>
+        </div>
+
+        <div class="freight-regions">
+          <div class="freight-region-item">
+            <span class="r-name">📍 Guarulhos</span>
+            <span class="r-price">R$ 5,00</span>
+          </div>
+          <div class="freight-region-item">
+            <span class="r-name">🏙 São Paulo Capital</span>
+            <span class="r-price">R$ 8,00</span>
+          </div>
+          <div class="freight-region-item">
+            <span class="r-name">🗺 Grande SP</span>
+            <span class="r-price">R$ 10,00</span>
+          </div>
+        </div>
+
+        <div class="freight-input-row">
+          <input
+            type="text"
+            id="cep-input"
+            class="freight-cep-input"
+            placeholder="00000-000"
+            maxlength="9"
+            inputmode="numeric"
+          >
+          <button id="cep-btn" class="freight-btn">
+            Calcular frete
+          </button>
+        </div>
+
+        <div id="freight-result"></div>
+
+      </div>
+    </section>
+
   </main>
 
 
@@ -283,12 +334,19 @@
       <header class="page-header">
         <span class="eyebrow">// Tabela de preços</span>
         <h1>Catálogo de Produtos</h1>
-        <p>Preços atualizados. Clique em qualquer produto para
-           perguntar disponibilidade via WhatsApp.</p>
+        <p>Preços atualizados. Clique em qualquer produto para ver detalhes ou perguntar disponibilidade via WhatsApp.</p>
       </header>
 
-      <!-- Os cards são gerados pelo JavaScript (js/catalog.js) -->
+      <!-- Barra de ordenação — gerada pelo catalog.js -->
+      <div class="sort-bar" id="sortBar"></div>
+
+      <!-- Cards gerados pelo catalog.js -->
       <div class="cat-grid" id="catGrid"></div>
+
+      <!-- Mensagem caso nenhum produto apareça no filtro -->
+      <p class="cat-empty" id="catEmpty" style="display:none">
+        Nenhum produto encontrado nesta categoria.
+      </p>
 
     </div>
   </main>
@@ -312,7 +370,7 @@
         disponibilidade de produtos. Respondemos rápido!
       </p>
 
-      <a href="https://wa.me/5511978759102" target="_blank"
+      <a href="https://wa.me/5511934592257" target="_blank"
          rel="noopener noreferrer" class="wa-btn-main">
         <svg viewBox="0 0 24 24" fill="white" width="18" height="18">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -321,7 +379,7 @@
       </a>
 
       <div class="wa-options">
-        <a href="https://wa.me/5511978759102?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20reparo%20do%20meu%20aparelho."
+        <a href="https://wa.me/5511934592257?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20reparo%20do%20meu%20aparelho."
            target="_blank" rel="noopener noreferrer" class="wa-option">
           <div class="wa-option-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -335,7 +393,7 @@
           </div>
         </a>
 
-        <a href="https://wa.me/5511978759102?text=Ol%C3%A1!%20Quero%20saber%20sobre%20os%20produtos%20dispon%C3%ADveis."
+        <a href="https://wa.me/5511934592257?text=Ol%C3%A1!%20Quero%20saber%20sobre%20os%20produtos%20dispon%C3%ADveis."
            target="_blank" rel="noopener noreferrer" class="wa-option">
           <div class="wa-option-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -350,7 +408,7 @@
           </div>
         </a>
 
-        <a href="https://wa.me/5511978759102?text=Ol%C3%A1!%20Tenho%20interesse%20em%20um%20celular."
+        <a href="https://wa.me/5511934592257?text=Ol%C3%A1!%20Tenho%20interesse%20em%20um%20celular."
            target="_blank" rel="noopener noreferrer" class="wa-option">
           <div class="wa-option-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -370,9 +428,16 @@
 
 
   <!-- ════════════════════════════════════════════════
+       PÁGINA 4 — PRODUTO INDIVIDUAL
+       (conteúdo gerado dinamicamente pelo catalog.js)
+  ════════════════════════════════════════════════ -->
+  <main id="page-produto" class="page"></main>
+
+
+  <!-- ════════════════════════════════════════════════
        BOTÃO FLUTUANTE WHATSAPP (só no desktop)
   ════════════════════════════════════════════════ -->
-  <a href="https://wa.me/5511978759102" target="_blank"
+  <a href="https://wa.me/5511934592257" target="_blank"
      rel="noopener noreferrer" class="wa-float" title="Falar no WhatsApp">
     <svg viewBox="0 0 24 24" fill="white">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -386,6 +451,7 @@
   <script src="js/data.js"></script>
   <script src="js/catalog.js"></script>
   <script src="js/navigation.js"></script>
+  <script src="js/freight.js"></script>
 
 </body>
 </html>

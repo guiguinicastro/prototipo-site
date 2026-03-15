@@ -1,41 +1,31 @@
 /* ============================================================
    catalog.css
-   Estilos da página de Catálogo de Produtos.
-   Os cards são criados dinamicamente pelo JavaScript,
-   mas os estilos ficam aqui.
+   ⚑ BASE ORIGINAL = comentários marcados com [BASE]
+   ⚑ NOVO          = comentários marcados com [NOVO]
    ============================================================ */
 
+/* [BASE] Container da página de catálogo */
 .catalog-wrap {
   max-width: 1100px;
   margin: 0 auto;
   padding: 4rem var(--spacing-xl) 5rem;
 }
 
-/* ── Grade de cards de produtos ── */
+/* [BASE] Grade responsiva de cards */
 .cat-grid {
   display: grid;
-  /*
-    repeat(auto-fill, minmax(210px, 1fr))
-    Cria colunas automaticamente:
-    - Cada coluna tem no mínimo 210px
-    - Se sobrar espaço, divide igualmente (1fr)
-    - auto-fill: preenche com quantas colunas couberem
-    Resultado: 5 colunas no desktop, 2 no celular — automático!
-  */
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   gap: 1px;
-  background: var(--navy);  /* Cor dos "espaços" entre cards */
+  background: var(--navy);
   border: 1px solid var(--navy);
 }
 
-/* ── Card individual de produto ── */
+/* [BASE] Card individual */
 .cat-card {
   background: var(--bg);
   display: flex;
   flex-direction: column;
   transition: background 0.2s;
-
-  /* Necessário para o ::before (linha do topo) funcionar */
   position: relative;
   overflow: hidden;
 }
@@ -44,36 +34,26 @@
   background: var(--surface);
 }
 
-/*
-  Linha verde que "desliza" da esquerda para a direita
-  quando o mouse passa por cima do card.
-  Usa ::before para não precisar de HTML adicional.
-*/
+/* [BASE] Linha verde que desliza no topo do card no hover */
 .cat-card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 2px;
   background: var(--teal);
-
-  /* Começa "esmagada" horizontalmente (invisível) */
   transform: scaleX(0);
   transform-origin: left;
-
-  /* Anima a mudança de scaleX(0) para scaleX(1) */
   transition: transform 0.25s ease;
 }
 
 .cat-card:hover::before {
-  transform: scaleX(1);  /* Expande para o tamanho total */
+  transform: scaleX(1);
 }
 
-/* ── Imagem do produto (emoji grande) ── */
+/* [BASE] Área do emoji/imagem do produto (legado) */
 .cat-img {
   width: 100%;
-  aspect-ratio: 1;  /* Mantém proporção quadrada */
+  aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,7 +62,7 @@
   border-bottom: 1px solid var(--navy);
 }
 
-/* ── Corpo do card (informações) ── */
+/* [BASE] Corpo do card */
 .cat-body {
   padding: 1.2rem;
   flex: 1;
@@ -91,11 +71,10 @@
   gap: 8px;
 }
 
-/* ── Badge (etiqueta "Top venda", "Premium" etc.) ── */
+/* [BASE] Badge "Top venda", "Premium" etc. */
 .cat-badge {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 10px; right: 10px;
   font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 1px;
@@ -106,7 +85,7 @@
   padding: 3px 8px;
 }
 
-/* ── Nome do produto ── */
+/* [BASE] Nome do produto */
 .cat-name {
   font-family: var(--font-display);
   font-size: 18px;
@@ -114,7 +93,7 @@
   line-height: 1;
 }
 
-/* ── Faixa de preço ── */
+/* [BASE] Faixa de preço */
 .cat-price {
   font-family: var(--font-mono);
   font-size: 12px;
@@ -126,19 +105,46 @@
   width: fit-content;
 }
 
-/* ════════════════════════════════════
-   SISTEMA DE AVALIAÇÕES
-════════════════════════════════════ */
+/* [BASE] Botão "Perguntar disponibilidade" no WhatsApp */
+.cat-wa {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--wa);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--navy);
+  transition: color 0.2s;
+}
 
-/* ── Resumo da média atual ── */
+.cat-wa:hover { color: #1fb855; }
+.cat-wa svg   { width: 12px; height: 12px; }
+
+/* [BASE] Mobile */
+@media (max-width: 600px) {
+  .catalog-wrap {
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+  }
+}
+
+
+/* ============================================================
+   [NOVO] SISTEMA DE AVALIAÇÕES
+   ============================================================ */
+
 .rating-summary {
   display: flex;
   align-items: center;
   gap: 6px;
+  flex-wrap: wrap;
   padding: 8px 0;
   border-top: 1px solid var(--navy);
   border-bottom: 1px solid var(--navy);
-  flex-wrap: wrap;
 }
 
 .avg-number {
@@ -149,10 +155,7 @@
   min-width: 24px;
 }
 
-.avg-stars {
-  display: flex;
-  gap: 1px;
-}
+.avg-stars { display: flex; gap: 1px; }
 
 .avg-total {
   font-family: var(--font-mono);
@@ -163,7 +166,6 @@
   margin-top: -2px;
 }
 
-/* ── Formulário de avaliação ── */
 .review-form {
   display: flex;
   flex-direction: column;
@@ -178,22 +180,11 @@
   letter-spacing: 1px;
 }
 
-/* Estrelas clicáveis */
-.star-picker {
-  display: flex;
-  gap: 3px;
-}
+.star-picker { display: flex; gap: 3px; }
 
-.star-pick {
-  cursor: pointer;
-  transition: transform 0.1s;
-}
+.star-pick { cursor: pointer; transition: transform 0.1s; }
+.star-pick:hover { transform: scale(1.2); }
 
-.star-pick:hover {
-  transform: scale(1.2);
-}
-
-/* Campo de texto do comentário */
 .comment-input {
   background: var(--surface2);
   border: 1px solid var(--navy);
@@ -208,15 +199,9 @@
   line-height: 1.5;
 }
 
-.comment-input::placeholder {
-  color: var(--muted);
-}
+.comment-input::placeholder { color: var(--muted); }
+.comment-input:focus         { border-color: var(--teal-line); }
 
-.comment-input:focus {
-  border-color: var(--teal-line);
-}
-
-/* Rodapé do formulário: hint + botão lado a lado */
 .review-form-footer {
   display: flex;
   align-items: center;
@@ -231,7 +216,6 @@
   flex: 1;
 }
 
-/* Botão de enviar avaliação */
 .review-submit {
   background: var(--teal-glow);
   border: 1px solid var(--teal-line);
@@ -251,30 +235,19 @@
   color: var(--bg);
 }
 
-/* ── Lista de comentários ── */
 .comments-list {
   display: flex;
   flex-direction: column;
   gap: 8px;
   max-height: 200px;
   overflow-y: auto;
-
-  /* Scrollbar customizada */
   scrollbar-width: thin;
   scrollbar-color: var(--navy) transparent;
 }
 
-.comments-list::-webkit-scrollbar {
-  width: 3px;
-}
-
-.comments-list::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.comments-list::-webkit-scrollbar-thumb {
-  background: var(--navy);
-}
+.comments-list::-webkit-scrollbar       { width: 3px; }
+.comments-list::-webkit-scrollbar-track { background: transparent; }
+.comments-list::-webkit-scrollbar-thumb { background: var(--navy); }
 
 .no-comments {
   font-size: 11px;
@@ -284,7 +257,6 @@
   padding: 6px 0;
 }
 
-/* Card de cada comentário */
 .comment-item {
   background: var(--surface2);
   border: 1px solid var(--navy);
@@ -301,10 +273,7 @@
   gap: 6px;
 }
 
-.comment-stars {
-  display: flex;
-  gap: 1px;
-}
+.comment-stars { display: flex; gap: 1px; }
 
 .comment-date {
   font-family: var(--font-mono);
@@ -325,37 +294,339 @@
   font-style: italic;
 }
 
-/* ── Link de WhatsApp dentro do card ── */
-.cat-wa {
+
+/* ============================================================
+   [NOVO] IMAGEM REAL DO PRODUTO NO CARD
+   — Borda estilizada no padrão do site
+   — object-fit: contain → imagem sempre inteira, sem corte
+   — Altura fixa → todos os cards com o mesmo tamanho
+   ============================================================ */
+
+.cat-img-wrap {
+  width: 100%;
+  min-height: 200px;
+  max-height: 200px;
+  background: #f8f8f8;
+
+  /* Borda superior verde-água (cor do site) + laterais azul marinho */
+  border-top: 3px solid var(--teal);
+  border-left: 1px solid var(--navy);
+  border-right: 1px solid var(--navy);
+  border-bottom: 1px solid var(--navy);
+
   display: flex;
   align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+/* Hover: todas as bordas ficam verde-água + brilho sutil */
+.cat-img-wrap:hover {
+  border-color: var(--teal);
+  box-shadow: inset 0 0 0 1px var(--teal-line);
+}
+
+.cat-img-real {
+  width: 100%;
+  height: 100%;
+  /* contain: mostra a imagem INTEIRA sem cortar nada */
+  object-fit: contain;
+  object-position: center;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Zoom suave no hover */
+.cat-card:hover .cat-img-real { transform: scale(1.04); }
+
+/* Fallback caso a imagem não carregue */
+.cat-img-fallback {
+  font-size: 54px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mensagem quando nenhum produto é encontrado no filtro */
+.cat-empty {
+  text-align: center;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 3rem 0;
+  letter-spacing: 1px;
+}
+
+
+/* ============================================================
+   [NOVO] SISTEMA DE ORDENAÇÃO
+   ============================================================ */
+
+.sort-bar { margin-bottom: 24px; }
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.sort-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+}
+
+.sort-btns { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.sort-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  background: var(--surface);
+  border: 1px solid var(--navy);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.sort-btn:hover  { border-color: var(--teal-line); color: var(--sub); }
+.sort-btn.active { background: var(--teal-glow); border-color: var(--teal); color: var(--teal); }
+
+/* Pills de categoria */
+.category-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 12px 0 4px;
+  border-top: 1px solid var(--navy);
+  animation: fadeUp 0.2s ease;
+}
+
+.cat-pill {
+  display: inline-flex;
+  align-items: center;
   gap: 5px;
+  padding: 5px 12px;
+  background: var(--bg);
+  border: 1px solid var(--navy);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.cat-pill:hover  { border-color: var(--teal-line); color: var(--sub); }
+.cat-pill.active { background: var(--teal-glow); border-color: var(--teal); color: var(--teal); }
+.cat-pill span   { font-size: 14px; }
+
+@media (max-width: 600px) {
+  .sort-controls { gap: 8px; }
+  .sort-btn  { padding: 7px 12px; font-size: 9px; }
+  .cat-pill  { font-size: 9px; padding: 5px 10px; }
+}
+
+
+/* ============================================================
+   [NOVO] PÁGINA INDIVIDUAL DO PRODUTO
+   ============================================================ */
+
+.produto-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem var(--spacing-xl) 5rem;
+}
+
+.produto-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: color 0.2s;
+  padding: 0;
+}
+.produto-back:hover { color: var(--teal); }
+.produto-back svg   { width: 16px; height: 16px; }
+
+.produto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .produto-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+
+.produto-gallery { display: flex; flex-direction: column; gap: 12px; }
+
+/* Imagem única da página individual — mesmo padrão visual do card */
+.produto-img-single {
+  width: 100%;
+  aspect-ratio: 1;
+  background: #f8f8f8;
+
+  /* Mesma borda do card para consistência visual */
+  border-top: 3px solid var(--teal);
+  border-left: 1px solid var(--navy);
+  border-right: 1px solid var(--navy);
+  border-bottom: 1px solid var(--navy);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(46,196,165,0.08);
+}
+
+.produto-img-single img {
+  width: 100%;
+  height: 100%;
+  /* contain: imagem inteira, sem corte */
+  object-fit: contain;
+  object-position: center;
+  padding: 20px;
+}
+
+.produto-info { display: flex; flex-direction: column; gap: 16px; }
+
+.produto-badge {
+  display: inline-block;
   font-family: var(--font-mono);
   font-size: 9px;
-  color: var(--wa);
-  letter-spacing: 0.5px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
+  background: var(--teal-glow);
+  border: 1px solid var(--teal-line);
+  color: var(--teal);
+  padding: 4px 10px;
+  width: fit-content;
+}
 
-  /* Empurra o link para o fundo do card */
-  margin-top: auto;
-  padding-top: 8px;
+.produto-nome {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 4vw, 40px);
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+
+.produto-price {
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: var(--teal);
+  letter-spacing: 1px;
+}
+
+.produto-rating-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 10px 0;
   border-top: 1px solid var(--navy);
-  transition: color 0.2s;
+  border-bottom: 1px solid var(--navy);
 }
 
-.cat-wa:hover {
-  color: #1fb855;
+.produto-avg-num {
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--teal);
+  line-height: 1;
 }
 
-.cat-wa svg {
-  width: 12px;
-  height: 12px;
+.produto-avg-stars { display: flex; gap: 2px; }
+
+.produto-avg-total {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  width: 100%;
+  margin-top: -4px;
 }
 
-/* ── Mobile ── */
+.produto-desc {
+  font-size: 14px;
+  color: var(--sub);
+  line-height: 1.8;
+}
+
+.produto-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--wa);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  transition: background 0.2s, transform 0.2s;
+  width: fit-content;
+  margin-top: 8px;
+}
+.produto-wa:hover { background: #1fb855; transform: translateY(-2px); }
+
+.produto-reviews {
+  border-top: 1px solid var(--navy);
+  padding-top: 2rem;
+}
+
+.produto-reviews-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.produto-review-form {
+  background: var(--surface);
+  border: 1px solid var(--navy);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comments-list.expanded {
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.comments-list.expanded .comment-item { padding: 14px 16px; }
+.comments-list.expanded .comment-text { font-size: 13px; }
+
 @media (max-width: 600px) {
-  .catalog-wrap {
-    padding-left: var(--spacing-md);
-    padding-right: var(--spacing-md);
-  }
+  .produto-wrap { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
 }
